@@ -377,6 +377,21 @@
         @media (max-width: 768px) {
             .footer-grid { grid-template-columns: 1fr; }
             .footer-grid > div:last-child { text-align: left; margin-top: 2rem; }
+
+            /* Fix Scope of Service - single column on mobile */
+            .boundaries-box {
+                padding: 3rem 2rem;
+            }
+            .boundaries-box ul {
+                columns: 1 !important;
+            }
+
+            /* Better spacing for privacy notice on mobile */
+            .privacy-notice {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 1rem;
+            }
         }
 
         /* Utility */
@@ -460,14 +475,9 @@
 
         <!-- About Section -->
         <section id="about" class="section-alt">
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="about-visual" style="background: var(--color-border); height: 400px; border-radius: 4px;"></div>
-                    <div>
-                        <h2 id="about-title"></h2>
-                        <div id="about-lines" style="font-size: 1.2rem;"></div>
-                    </div>
-                </div>
+            <div class="container" style="max-width: 800px; text-align: center;">
+                <h2 id="about-title"></h2>
+                <div id="about-lines" style="font-size: 1.2rem;"></div>
             </div>
         </section>
 
@@ -491,13 +501,13 @@
                         <div class="resource-icon">📄</div>
                         <h3>Absence Policy Template</h3>
                         <p>A clear, compliant framework for managing employee absence in your business.</p>
-                        <a href="#download-absence" class="resource-link">Download Free Template →</a>
+                        <a href="resources/Absence-Policy-Template.pdf" download class="resource-link">Download Free Template →</a>
                     </div>
                     <div class="resource-card">
                         <div class="resource-icon">📋</div>
                         <h3>Pricing Guide</h3>
                         <p>Transparent pricing for all HR services, including monthly retainers and project work.</p>
-                        <a href="#download-pricing" class="resource-link">Download PDF →</a>
+                        <a href="resources/Pricing-Guide.pdf" download class="resource-link">Download PDF →</a>
                     </div>
                     <div class="resource-card">
                         <div class="resource-icon">📞</div>
@@ -803,14 +813,6 @@
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
                     alert('This section is under development. Please contact us directly for information about our terms of service and GDPR compliance.');
-                });
-            });
-
-            // Resource download links (placeholder - replace with actual file URLs)
-            document.querySelectorAll('a[href^="#download-"]').forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    alert('Resource downloads will be available soon. Please contact us directly to request this resource.');
                 });
             });
 
